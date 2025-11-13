@@ -11950,6 +11950,7 @@ var __privateWrapper = (obj, member, setter, getter) => ({
     for (const key in patchToApply) {
       if (!patchToApply.hasOwnProperty(key))
         continue;
+	  if (key === "__proto__" || key === "constructor") continue;
       const subPatch = patchToApply[key];
       const targetValue = target2[key];
       if (isPlainObject$3(targetValue) && isPlainObject$3(subPatch) && target2.hasOwnProperty(key) && !isRef(subPatch) && !isReactive(subPatch)) {
